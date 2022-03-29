@@ -107,39 +107,58 @@ Nível Obrigatório:
 
   ![Imagem home no swagger](https://github.com/Daiene-Fortunato/accountbank/blob/1b5a55b3dd49da04072bef09a7b09a345cd26e69/images/swaggerhome.png?raw=true)
 
+  - **Banco de dados e tabelas:**
+
   
 
-  [Imagem do banco de dados](https://github.com/Daiene-Fortunato/accountbank/tree/main/images/accountdata.png)
+  ![Imagem do banco de dados](https://github.com/Daiene-Fortunato/accountbank/blob/a888481563cc4c674a4d28a00463d6172bda5298/images/accountdata.png?raw=true)
 
 - [x] Implementar CREATE, READ e DELETE;
 
-  [Imagem codigo CRUD](https://github.com/Daiene-Fortunato/accountbank/tree/main/images/codigocrud.png)
+  - **Codigos CRUD no controller:**
 
-  [Imagem create no swagger](https://github.com/Daiene-Fortunato/accountbank/tree/main/images/swaggercrud.png)
+  ![Imagem codigo CRUD](https://github.com/Daiene-Fortunato/accountbank/blob/a888481563cc4c674a4d28a00463d6172bda5298/images/codigocrud.png?raw=true)
+
+  - **O recursos CRUD vistos pelo Swagger:**
+
+  ![Imagem create no swagger](https://github.com/Daiene-Fortunato/accountbank/blob/a888481563cc4c674a4d28a00463d6172bda5298/images/swaggercrud.png?raw=true)
 
 - [ ] Todos os campos são de preenchimento obrigatório, sendo necessário tratar exceções para preenchimento nulo;
 
 - [x] A API deve listar todas as contas e os cartões relacionados à elas;
 
-  [Imagem list all contas](https://github.com/Daiene-Fortunato/accountbank/tree/main/images/listallcontas.png)
+  - **GET funcionando e listando todas as contas:** (mostrar)
+
+  ![Imagem list all contas](https://github.com/Daiene-Fortunato/accountbank/blob/a888481563cc4c674a4d28a00463d6172bda5298/images/listallcontas.png?raw=true)
 
 - [x] As contas devem ser criadas junto com seus respectivos cartões;
 
-  [Imagem Create Conta](https://github.com/Daiene-Fortunato/accountbank/tree/main/images/createconta.png)
+  - **POST funcionando, criando a conta com cartão:**
+
+  ![Imagem Create Conta](https://github.com/Daiene-Fortunato/accountbank/blob/a888481563cc4c674a4d28a00463d6172bda5298/images/createconta.png?raw=true)
 
 - [x] Para o DELETE, não é possível deletar a conta bancária se houver algum cartão vinculado à ela; Primeiro deletar cartões, depois conta;
 
-  [Imagem Delete Conta](https://github.com/Daiene-Fortunato/accountbank/tree/main/images/deleteconta.png)
+  - **DELETE funcionando, deletando a conta pelo Id** (mostrar)
+
+  ![Imagem Delete Conta](https://github.com/Daiene-Fortunato/accountbank/blob/a888481563cc4c674a4d28a00463d6172bda5298/images/deleteconta.png?raw=true)
 
 - [x] Fornecer o Script de criação do banco de dados;
 
-  [Imagem Script Create](https://github.com/Daiene-Fortunato/accountbank/tree/main/images/scriptcreate.png)
+  - **Script manual para criação do banco e das tabelas (com as restrições e relacionamentos):**
 
-  [Imagem Script Insert](https://github.com/Daiene-Fortunato/accountbank/tree/main/images/scriptinsert.png)
+  ![Imagem Script Create](https://github.com/Daiene-Fortunato/accountbank/blob/a888481563cc4c674a4d28a00463d6172bda5298/images/scriptcreate.png?raw=true)
+
+  - **Script com inserts para testes:**
+
+  ![Imagem Script Insert](https://github.com/Daiene-Fortunato/accountbank/blob/a888481563cc4c674a4d28a00463d6172bda5298/images/scriptinsert.png?raw=true)
 
 - [x] Usar Maven ou Gradle para gerenciar as dependências;
 
-  [Imagem Maven](https://github.com/Daiene-Fortunato/accountbank/tree/main/images/maven.png)
+  - _Incluir atualização do comando <finalName>:_
+  - **Arquivo pom.xml com as configurações de dependências:**
+
+  ![Imagem Maven](https://github.com/Daiene-Fortunato/accountbank/blob/a888481563cc4c674a4d28a00463d6172bda5298/images/maven.png?raw=true)
 
 - [x] Usar Git, comitar cada processo e disponibilizar o projeto em um repositório público.
 
@@ -149,11 +168,19 @@ Nível Avançado:
 
 - [x] Documentar via Swagger;
 
-  [Imagem Swagger.Config](https://github.com/Daiene-Fortunato/accountbank/tree/main/images/swaggerconfig.png)
+  - **Imagem da configuração do Swagger:**
+
+  ![Imagem Swagger.Config](https://github.com/Daiene-Fortunato/accountbank/blob/a888481563cc4c674a4d28a00463d6172bda5298/images/swaggerconfig.png?raw=true)
 
 - [x] Criar UPDATE apenas para a mudança dos tipos de cartões vinculados às contas;
 
-  [Imagem Update Type](https://github.com/Daiene-Fortunato/accountbank/tree/main/images/updatetype.png)
+  - **Foi criado todo o CRUD como forma de treino, em evidência o UPDATE:**
+
+  ![Imagem Update Type](https://github.com/Daiene-Fortunato/accountbank/blob/a888481563cc4c674a4d28a00463d6172bda5298/images/codigoupdatetype.png?raw=true)
+
+  - **PUT funcionando, atualizando o tipo de cartão pelo id:**
+
+  ![Imagem put no swagger](https://github.com/Daiene-Fortunato/accountbank/blob/a888481563cc4c674a4d28a00463d6172bda5298/images/swaggerputtype.png?raw=true)
 
 - [ ] Tratar um erro de exceção se tentar excluir o tipo de cartão quando este possuir cartões vinculados;
 
