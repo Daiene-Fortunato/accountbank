@@ -99,9 +99,15 @@ Nível Obrigatório:
 
 - [x] Necessário utilizar SPRING BOOT, o acesso e documentação devem ser feitos via SWAGGER;
 
-  ![Imagem run da api](https://github.com/Daiene-Fortunato/accountbank/tree/main/images/codigoapi.png?raw=true)
+  * **Run do Projeto no Spring Boot**:
 
-  [Imagem home no swagger](https://github.com/Daiene-Fortunato/accountbank/tree/main/images/swaggerhome.png)
+  ![Imagem código API](https://github.com/Daiene-Fortunato/accountbank/blob/1b5a55b3dd49da04072bef09a7b09a345cd26e69/images/codigoapi.png?raw=true)
+
+  - **Acesso e documentação da API pelo Swagger:**
+
+  ![Imagem home no swagger](https://github.com/Daiene-Fortunato/accountbank/blob/1b5a55b3dd49da04072bef09a7b09a345cd26e69/images/swaggerhome.png?raw=true)
+
+  
 
   [Imagem do banco de dados](https://github.com/Daiene-Fortunato/accountbank/tree/main/images/accountdata.png)
 
