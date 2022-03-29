@@ -85,7 +85,7 @@ O objetivo foi a criação de uma API REST para atender uma conta bancária; ace
 
 ------
 
-[Diagrama de Relacionamento MySQL](https://github.com/Daiene-Fortunato/itexperts/diagramabanco.png)
+[Diagrama de Relacionamento MySQL](https://github.com/Daiene-Fortunato/accountbank/diagramabanco.png)
 
 
 
@@ -99,55 +99,55 @@ Nível Obrigatório:
 
 - [x] Necessário utilizar SPRING BOOT, o acesso e documentação devem ser feitos via SWAGGER;
 
-  [Imagem run da api](https://github.com/Daiene-Fortunato/itexperts/images/codigoapi.png)
+  [Imagem run da api](https://github.com/Daiene-Fortunato/accountbank/images/codigoapi.png)
 
-  [Imagem home no swagger](https://github.com/Daiene-Fortunato/itexperts/images/swaggerhome.png)
+  [Imagem home no swagger](https://github.com/Daiene-Fortunato/accountbank/images/swaggerhome.png)
 
-  [Imagem do banco de dados](https://github.com/Daiene-Fortunato/itexperts/images/accountdata.png)
+  [Imagem do banco de dados](https://github.com/Daiene-Fortunato/accountbank/images/accountdata.png)
 
 - [x] Implementar CREATE, READ e DELETE;
 
-  [Imagem codigo CRUD](https://github.com/Daiene-Fortunato/itexperts/images/codigocrud.png)
+  [Imagem codigo CRUD](https://github.com/Daiene-Fortunato/accountbank/images/codigocrud.png)
 
-  [Imagem create no swagger](https://github.com/Daiene-Fortunato/itexperts/images/swaggercrud.png)
+  [Imagem create no swagger](https://github.com/Daiene-Fortunato/accountbank/images/swaggercrud.png)
 
 - [ ] Todos os campos são de preenchimento obrigatório, sendo necessário tratar exceções para preenchimento nulo;
 
 - [x] A API deve listar todas as contas e os cartões relacionados à elas;
 
-  [Imagem list all contas](https://github.com/Daiene-Fortunato/itexperts/images/listallcontas.png)
+  [Imagem list all contas](https://github.com/Daiene-Fortunato/accountbank/images/listallcontas.png)
 
 - [x] As contas devem ser criadas junto com seus respectivos cartões;
 
-  [Imagem Create Conta](https://github.com/Daiene-Fortunato/itexperts/images/createconta.png)
+  [Imagem Create Conta](https://github.com/Daiene-Fortunato/accountbank/images/createconta.png)
 
 - [x] Para o DELETE, não é possível deletar a conta bancária se houver algum cartão vinculado à ela; Primeiro deletar cartões, depois conta;
 
-  [Imagem Delete Conta](https://github.com/Daiene-Fortunato/itexperts/images/deleteconta.png)
+  [Imagem Delete Conta](https://github.com/Daiene-Fortunato/accountbank/images/deleteconta.png)
 
 - [x] Fornecer o Script de criação do banco de dados;
 
-  [Imagem Script Create](https://github.com/Daiene-Fortunato/itexperts/images/scriptcreate.png)
+  [Imagem Script Create](https://github.com/Daiene-Fortunato/acccountbank/images/scriptcreate.png)
 
-  [Imagem Script Insert](https://github.com/Daiene-Fortunato/itexperts/images/scriptinsert.png)
+  [Imagem Script Insert](https://github.com/Daiene-Fortunato/accountbank/images/scriptinsert.png)
 
 - [x] Usar Maven ou Gradle para gerenciar as dependências;
 
-  [Imagem Maven](https://github.com/Daiene-Fortunato/itexperts/images/maven.png)
+  [Imagem Maven](https://github.com/Daiene-Fortunato/accountbank/images/maven.png)
 
 - [x] Usar Git, comitar cada processo e disponibilizar o projeto em um repositório público.
 
-  [Imagem Git Commits](https://github.com/Daiene-Fortunato/itexperts/images/gitcommit.png)
+  [Imagem Git Commits](https://github.com/Daiene-Fortunato/accountbank/images/gitcommit.png)
 
 Nível Avançado:
 
 - [x] Documentar via Swagger;
 
-  [Imagem Swagger.Config](https://github.com/Daiene-Fortunato/itexperts/images/swaggerconfig.png)
+  [Imagem Swagger.Config](https://github.com/Daiene-Fortunato/accountbank/images/swaggerconfig.png)
 
 - [x] Criar UPDATE apenas para a mudança dos tipos de cartões vinculados às contas;
 
-  [Imagem Update Type](https://github.com/Daiene-Fortunato/itexperts/images/updatetype.png)
+  [Imagem Update Type](https://github.com/Daiene-Fortunato/accountbank/images/updatetype.png)
 
 - [ ] Tratar um erro de exceção se tentar excluir o tipo de cartão quando este possuir cartões vinculados;
 
@@ -157,11 +157,10 @@ Nível Avançado:
 
   - Utilizar micro-instância RDS T2 (banco de dados) - Free Tier;
 
-  [Imagem Instancia T2 EC2](https://github.com/Daiene-Fortunato/itexperts/images/instanciat2ec2.png) 
+  [Imagem Instancia T2 EC2](https://github.com/Daiene-Fortunato/accountbank/images/instanciat2ec2.png) 
 
-  [Imagem Instancia RDS T2](https://github.com/Daiene-Fortunato/itexperts/images/instanciardst2.png)
+  [Imagem Instancia RDS T2](https://github.com/Daiene-Fortunato/accountbank/images/instanciardst2.png)
 
 - [x] Executar o projeto localmente.
 
-  [Imagem API URL local](https://github.com/Daiene-Fortunato/itexperts/images/localhost.png)
 
