@@ -99,7 +99,7 @@ Nível Obrigatório:
 
 - [x] Necessário utilizar SPRING BOOT, o acesso e documentação devem ser feitos via SWAGGER;
 
-  [Imagem run da api](https://github.com/Daiene-Fortunato/accountbank/tree/main/images/codigoapi.png)
+  ![Imagem run da api](https://github.com/Daiene-Fortunato/accountbank/tree/main/images/codigoapi.png)
 
   [Imagem home no swagger](https://github.com/Daiene-Fortunato/accountbank/tree/main/images/swaggerhome.png)
 
