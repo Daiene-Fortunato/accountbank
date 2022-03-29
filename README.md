@@ -2,7 +2,7 @@
 
 
 
-Este repositório contém todas as informações referentes ao desenvolvimento do **Projeto Final** do **Curso Intensivo em linguagem Java** do **IT Experts** da [Share RH](sharerh.com), iniciado em 10/01/22 e finalizado em 25/03/22.
+Este repositório contém todas as informações referentes ao desenvolvimento do **Projeto Final** do **Curso Intensivo em linguagem Java** do **IT Experts** da [Share RH](sharerh.com). (para maiores informações leia "Origem do projeto")
 
 O objetivo foi a criação de uma API REST para atender uma conta bancária; acesso e leitura de informações sobre os dados da conta, cartões e limite. Abaixo, você pode acompanhar todas as informações sobre o meu desenvolvimento e também para construir o projeto por si mesmo.
 
@@ -13,23 +13,15 @@ O objetivo foi a criação de uma API REST para atender uma conta bancária; ace
 ------
 
 - Lógica de Programação Orientada à objetos
-
 - Sintaxe **Java**
-
 - **API REST** com Framework **Spring Boot**
-
 - Injeção de dependências via **Maven**
-
 - Conteinerização via **Docker**
-
 - Documentação e manipulação via **Swagger**
-
 - Criação, relacionamentos e querys de **MySQL database**
-
 - Arquitetura Cloud **AWS** com implementação via **AWS Code Pipeline**
 - Versionamento de código via **Git**
-
-
+- Criação de ambiente, banco de dados e pipeline na **AWS**
 
 ### <font color=grey>Tecnologias utilizadas:</font>
 
@@ -45,6 +37,7 @@ O objetivo foi a criação de uma API REST para atender uma conta bancária; ace
 - Apache Maven (3.8.5)
 - Docker
 - Swagger 2.0
+- Postman (9.15.2)
 - MySQL Workbench (8.0 CE)
 - Git (2.34.1)
 - Windows 11
@@ -85,7 +78,7 @@ O objetivo foi a criação de uma API REST para atender uma conta bancária; ace
 
 ------
 
-[Diagrama de Relacionamento MySQL](https://github.com/Daiene-Fortunato/accountbank/tree/main/imagesdiagramabanco.png)
+![Diagrama de Relacionamento MySQL](https://github.com/Daiene-Fortunato/accountbank/blob/f3eba3eb137fd6610568f58c7059441944c1e4a2/images/diagramabanco.png?raw=true)
 
 
 
@@ -162,7 +155,7 @@ Nível Obrigatório:
 
 - [x] Usar Git, comitar cada processo e disponibilizar o projeto em um repositório público.
 
-  [Imagem Git Commits](https://github.com/Daiene-Fortunato/accountbank/tree/main/images/gitcommit.png)
+  ![Imagem Git Commits](https://github.com/Daiene-Fortunato/accountbank/blob/f3eba3eb137fd6610568f58c7059441944c1e4a2/images/gitcommit.png?raw=true)
 
 Nível Avançado:
 
@@ -186,13 +179,50 @@ Nível Avançado:
 
 - [x] Implementar o projeto na nuvem utilizando AWS através do AWS Code Pipeline (CI/CD) e fornecer a Url.
 
-  - Utilizar uma instância T2 micro EC2 (backend) - Free Tier
+  - **Criação com êxito do Pipeline**:
 
-  - Utilizar micro-instância RDS T2 (banco de dados) - Free Tier;
+  
 
-  [Imagem Instancia T2 EC2](https://github.com/Daiene-Fortunato/accountbank/tree/main/images/instanciat2ec2.png) 
+  - **Ambiente funcionando:**
 
-  [Imagem Instancia RDS T2](https://github.com/Daiene-Fortunato/accountbank/tree/main/images/instanciardst2.png)
+    ![Imagem Instancia T2 EC2](https://github.com/Daiene-Fortunato/accountbank/blob/d05619b899116eb57f7d7859f88a740baf13bd59/images/ambienteelasticbeans.png?raw=true)
+
+  - **Banco de dados funcionando:**
+
+    ![Imagem Instancia RDS T2](https://github.com/Daiene-Fortunato/accountbank/blob/d05619b899116eb57f7d7859f88a740baf13bd59/images/bancodedadosrds.png?raw=true)
+
+  
 
 - [x] Executar o projeto localmente.
 
+
+
+## Origem, Facilitadores e Agradecimentos
+
+​				Este projeto foi o desafio final do curso Java da jornada IT Experts, promovido pela ShareRH. As aulas ocorreram de segunda (19-22h) a sábado(9h-16h) iniciado em 10/01/22 e finalizado em 25/03/22, totalizando 186h.
+
+​				As aulas de Java, REST API e criação de Pipeline foram ministradas pelo facilitador **Huelton Santos** ([Linkedin](https://www.linkedin.com/in/hueltondihonsantos/) | [GitHub](https://github.com/huelton)).Conceitos e funcionalidades da AWS foram ministradas pelo facilitador **Atos Ramos**([Linkedin](https://www.linkedin.com/in/atosramos/)). Banco de dados SQL (Oracle) foram ministradas pelo facilitador **Felipe dos Santos** ([Linkedin](https://www.linkedin.com/in/fdsantosdba/)).
+
+​				Deixo aqui meus agradecimentos aos professores, foi um aprendizado significativo que levarei por toda a carreira e também agradeço ao pessoal da SharedRH pelo apoio durante todo o período de aprendizado, principalmente o **Vinícius de Souza** e a **Dayana Cruz**.
+
+## Contribuindo
+
+​		Teve uma ideia que pode melhorar ou acrescentar algo bacana ao projeto? Leia [CONTRIBUTING.md](https://github.com/Daiene-Fortunato/wcloud/blob/main/CONTRIBUTING.md) para obter detalhes sobre o processo de envio de solicitações pull.
+
+
+
+## Autora
+
+Contribuiu com:
+
+1.  Todo o projeto.
+
+:woman_student: [**Daiene Fortunato**](https://www.linkedin.com/in/daienefortunato/) - Analista de Dados e Desenvolvedora de Sistemas
+
+:email:  daiene.fortunato@gmail.com
+
+
+
+## Licença
+
+Este projeto está licenciado sob a Licença MIT - veja o arquivo [LICENSE.md](https://github.com/Daiene-Fortunato/accountbank/blob/main/LICENSE.md) para detalhes
