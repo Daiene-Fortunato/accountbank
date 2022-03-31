@@ -197,7 +197,7 @@ Link de vídeo (Youtube) com o passo a passo da construção: [disponível após
 
   - **Criação com êxito do Pipeline**:
 
-    ![Imagem pipeline](https://github.com/Daiene-Fortunato/accountbank/blob/d05619b899116eb57f7d7859f88a740baf13bd59/images/pipeline.png?raw=true)
+    ![Imagem pipeline](https://github.com/Daiene-Fortunato/accountbank/blob/142c01afa570059b1882d80d8b63779a9d5dd681/images/pipeline.png?raw=true)
 
   - **Ambiente funcionando:**
 
@@ -235,7 +235,7 @@ Contribuiu com:
 
 1.  Todo o projeto.
 
-:woman_student: [**Daiene Fortunato**](https://www.linkedin.com/in/daienefortunato/) - Analista de Dados e Desenvolvedora de Sistemas
+:woman_student: [**Daiene Fortunato**](https://www.linkedin.com/in/daienefortunato/) - Gestora de TI e Desenvolvedora de Sistemas
 
 :email:  daiene.fortunato@gmail.com
 
