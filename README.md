@@ -2,9 +2,9 @@
 
 
 
-Este repositório contém todas as informações referentes ao desenvolvimento do **Projeto Final** do **Curso Intensivo em linguagem Java** do **IT Experts** da [Share RH](sharerh.com). (para maiores informações leia "Origem do projeto")
+Este repositório contém todas as informações referentes ao desenvolvimento do **Projeto Final  da trilha Java da jornada IT Experts**, promovido pela [ShareRH](https://sharerh.com/sobre/) como forma de entrada em processo seletivo para patrocinadores da empresa. As aulas ocorreram de segunda (19h-22h) a sábado(9h-16h) iniciado em 10/01/22  e finalizado em 25/03/22, totalizando 186h.
 
-O objetivo foi a criação de uma API REST para atender uma conta bancária; acesso e leitura de informações sobre os dados da conta, cartões e limite. Abaixo, você pode acompanhar todas as informações sobre o meu desenvolvimento e também para construir o projeto por si mesmo.
+O objetivo foi a criação de uma WEB API REST acessada via AWS para atender uma conta bancária; acesso e leitura de informações sobre os dados da conta, cartões e limite. Abaixo, você pode acompanhar todas as informações sobre o meu desenvolvimento.
 
 
 
@@ -13,34 +13,52 @@ O objetivo foi a criação de uma API REST para atender uma conta bancária; ace
 ------
 
 - Lógica de Programação Orientada à objetos
+
 - Sintaxe **Java**
+
 - **API REST** com Framework **Spring Boot**
+
 - Injeção de dependências via **Maven**
-- Conteinerização via **Docker**
+
 - Documentação e manipulação via **Swagger**
-- Criação, relacionamentos e querys de **MySQL database**
+
+- Criação de banco e manipulação de dados **MySQL ** 
+
 - Arquitetura Cloud **AWS** com implementação via **AWS Code Pipeline**
+
 - Versionamento de código via **Git**
-- Criação de ambiente, banco de dados e pipeline na **AWS**
+
+  
 
 ### <font color=grey>Tecnologias utilizadas:</font>
 
 ------
 
 - Java (11.0.12)
+
 - Java SE Runtime Environment (18.9)
+
 - Java Development Kit (1.7)
+
 - Spring Tool Suite 4
+
 - Spring Boot
+
 - Spring WEB
+
 - Spring Data JPA
+
 - Apache Maven (3.8.5)
-- Docker
+
 - Swagger 2.0
-- Postman (9.15.2)
+
+- Postman (9.15.2) (opcional)
+
 - MySQL Workbench (8.0 CE)
+
 - Git (2.34.1)
-- Windows 11
+
+  
 
 ### O Projeto:
 
@@ -86,78 +104,84 @@ O objetivo foi a criação de uma API REST para atender uma conta bancária; ace
 
 ------
 
-Nível Obrigatório:
+Abaixo eu pontuei cada uma das regras a serem cumpridas em dois estágios: o "obrigatório", que considera o básico do funcionamento da API para o projeto e o "avançado" que implementa outras funcionalidades e foca na capacidade de criar e gerenciar uma pipeline na AWS. Caso o aluno não conseguisse gerar a pipeline, ele poderia apresentar pelo seu localhost
+
+Link de vídeo (Youtube) com o passo a passo da construção: [disponível após 08/04/22]()
+
+
+
+**Nível Obrigatório:** :handshake:
+
+------
+
+
 
 - [x] Criar uma WEB API de conta bancária vinculada a um banco de dados MySQL contendo as tabelas conta, cartão e tipo de cartão;
 
 - [x] Necessário utilizar SPRING BOOT, o acesso e documentação devem ser feitos via SWAGGER;
 
+  
+
   * **Run do Projeto no Spring Boot**:
+
+    
 
   ![Imagem código API](https://github.com/Daiene-Fortunato/accountbank/blob/1b5a55b3dd49da04072bef09a7b09a345cd26e69/images/codigoapi.png?raw=true)
 
+  
+
   - **Acesso e documentação da API pelo Swagger:**
 
-  ![Imagem home no swagger](https://github.com/Daiene-Fortunato/accountbank/blob/1b5a55b3dd49da04072bef09a7b09a345cd26e69/images/swaggerhome.png?raw=true)
+    
 
-  - **Banco de dados e tabelas:**
+  ![imagem swagger](https://github.com/Daiene-Fortunato/accountbank/blob/1b5a55b3dd49da04072bef09a7b09a345cd26e69/images/swaggerhome.png?raw=true)
 
   
 
-  ![Imagem do banco de dados](https://github.com/Daiene-Fortunato/accountbank/blob/a888481563cc4c674a4d28a00463d6172bda5298/images/accountdata.png?raw=true)
+- [x] Implementar CREATE, READ e DELETE para Account e Card;
 
-- [x] Implementar CREATE, READ e DELETE;
-
-  - **Codigos CRUD no controller:**
-
-  ![Imagem codigo CRUD](https://github.com/Daiene-Fortunato/accountbank/blob/a888481563cc4c674a4d28a00463d6172bda5298/images/codigocrud.png?raw=true)
-
-  - **O recursos CRUD vistos pelo Swagger:**
-
-  ![Imagem create no swagger](https://github.com/Daiene-Fortunato/accountbank/blob/a888481563cc4c674a4d28a00463d6172bda5298/images/swaggercrud.png?raw=true)
-
-- [ ] Todos os campos são de preenchimento obrigatório, sendo necessário tratar exceções para preenchimento nulo;
+- [x] Todos os campos são de preenchimento obrigatório, sendo necessário tratar exceções para preenchimento nulo;
 
 - [x] A API deve listar todas as contas e os cartões relacionados à elas;
 
-  - **GET funcionando e listando todas as contas:** (mostrar)
-
-  ![Imagem list all contas](https://github.com/Daiene-Fortunato/accountbank/blob/a888481563cc4c674a4d28a00463d6172bda5298/images/listallcontas.png?raw=true)
-
 - [x] As contas devem ser criadas junto com seus respectivos cartões;
 
-  - **POST funcionando, criando a conta com cartão:**
-
-  ![Imagem Create Conta](https://github.com/Daiene-Fortunato/accountbank/blob/a888481563cc4c674a4d28a00463d6172bda5298/images/createconta.png?raw=true)
-
-- [x] Para o DELETE, não é possível deletar a conta bancária se houver algum cartão vinculado à ela; Primeiro deletar cartões, depois conta;
-
-  - **DELETE funcionando, deletando a conta pelo Id** (mostrar)
-
-  ![Imagem Delete Conta](https://github.com/Daiene-Fortunato/accountbank/blob/a888481563cc4c674a4d28a00463d6172bda5298/images/deleteconta.png?raw=true)
+- [x] Para o DELETE, não é possível deletar a conta bancária se houver algum cartão vinculado à ela (primeiro deletar cartões, depois conta);
 
 - [x] Fornecer o Script de criação do banco de dados;
 
+  
+
   - **Script manual para criação do banco e das tabelas (com as restrições e relacionamentos):**
+
+    
 
   ![Imagem Script Create](https://github.com/Daiene-Fortunato/accountbank/blob/a888481563cc4c674a4d28a00463d6172bda5298/images/scriptcreate.png?raw=true)
 
-  - **Script com inserts para testes:**
 
-  ![Imagem Script Insert](https://github.com/Daiene-Fortunato/accountbank/blob/a888481563cc4c674a4d28a00463d6172bda5298/images/scriptinsert.png?raw=true)
 
 - [x] Usar Maven ou Gradle para gerenciar as dependências;
 
-  - _Incluir atualização do comando <finalName>:_
+  
+
   - **Arquivo pom.xml com as configurações de dependências:**
+
+    
 
   ![Imagem Maven](https://github.com/Daiene-Fortunato/accountbank/blob/a888481563cc4c674a4d28a00463d6172bda5298/images/maven.png?raw=true)
 
+
+
 - [x] Usar Git, comitar cada processo e disponibilizar o projeto em um repositório público.
 
-  ![Imagem Git Commits](https://github.com/Daiene-Fortunato/accountbank/blob/f3eba3eb137fd6610568f58c7059441944c1e4a2/images/gitcommit.png?raw=true)
 
-Nível Avançado:
+
+
+### **Nível Avançado:**  :woman_student:
+
+------
+
+
 
 - [x] Documentar via Swagger;
 
@@ -167,21 +191,13 @@ Nível Avançado:
 
 - [x] Criar UPDATE apenas para a mudança dos tipos de cartões vinculados às contas;
 
-  - **Foi criado todo o CRUD como forma de treino, em evidência o UPDATE:**
-
-  ![Imagem Update Type](https://github.com/Daiene-Fortunato/accountbank/blob/a888481563cc4c674a4d28a00463d6172bda5298/images/codigoupdatetype.png?raw=true)
-
-  - **PUT funcionando, atualizando o tipo de cartão pelo id:**
-
-  ![Imagem put no swagger](https://github.com/Daiene-Fortunato/accountbank/blob/a888481563cc4c674a4d28a00463d6172bda5298/images/swaggerputtype.png?raw=true)
-
-- [ ] Tratar um erro de exceção se tentar excluir o tipo de cartão quando este possuir cartões vinculados;
+- [x] Tratar um erro de exceção se tentar excluir o tipo de cartão quando este possuir cartões vinculados;
 
 - [x] Implementar o projeto na nuvem utilizando AWS através do AWS Code Pipeline (CI/CD) e fornecer a Url.
 
   - **Criação com êxito do Pipeline**:
 
-  
+    ![Imagem pipeline](https://github.com/Daiene-Fortunato/accountbank/blob/d05619b899116eb57f7d7859f88a740baf13bd59/images/pipeline.png?raw=true)
 
   - **Ambiente funcionando:**
 
@@ -197,13 +213,15 @@ Nível Avançado:
 
 
 
-## Origem, Facilitadores e Agradecimentos
+## Facilitadores e Agradecimentos
 
-​				Este projeto foi o desafio final do curso Java da jornada IT Experts, promovido pela ShareRH. As aulas ocorreram de segunda (19-22h) a sábado(9h-16h) iniciado em 10/01/22 e finalizado em 25/03/22, totalizando 186h.
+As aulas de Java, REST API e criação de Pipeline foram ministradas pelo facilitador **Huelton Santos** ([Linkedin](https://www.linkedin.com/in/hueltondihonsantos/) | [GitHub](https://github.com/huelton)).
 
-​				As aulas de Java, REST API e criação de Pipeline foram ministradas pelo facilitador **Huelton Santos** ([Linkedin](https://www.linkedin.com/in/hueltondihonsantos/) | [GitHub](https://github.com/huelton)).Conceitos e funcionalidades da AWS foram ministradas pelo facilitador **Atos Ramos**([Linkedin](https://www.linkedin.com/in/atosramos/)). Banco de dados SQL (Oracle) foram ministradas pelo facilitador **Felipe dos Santos** ([Linkedin](https://www.linkedin.com/in/fdsantosdba/)).
+Conceitos e funcionalidades da AWS foram ministradas pelo facilitador **Atos Ramos**([Linkedin](https://www.linkedin.com/in/atosramos/)). 
 
-​				Deixo aqui meus agradecimentos aos professores, foi um aprendizado significativo que levarei por toda a carreira e também agradeço ao pessoal da SharedRH pelo apoio durante todo o período de aprendizado, principalmente o **Vinícius de Souza** e a **Dayana Cruz**.
+Banco de dados SQL (Oracle) foram ministradas pelo facilitador **Felipe dos Santos** ([Linkedin](https://www.linkedin.com/in/fdsantosdba/)).
+
+Deixo aqui meus agradecimentos aos professores e colegas de turma, foi um aprendizado significativo que com certeza me beneficiou como profissional e pessoa. Também agradeço à equipe da SharedRH pelo apoio durante todo o período de aprendizado, principalmente ao **Vinícius de Souza** e a **Dayana Cruz**, que além das dúvidas também nos concederam uma aula preparatória para entrevistas muito bacana.
 
 ## Contribuindo
 
