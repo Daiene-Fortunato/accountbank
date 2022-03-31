@@ -2,8 +2,11 @@ package br.com.accountbank.controller;
 
 import br.com.accountbank.model.Card;
 import br.com.accountbank.repository.CardRepository;
+import br.com.accountbank.service.CardService;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -14,13 +17,10 @@ public class CardController {
 
 	@Autowired
     private CardRepository cardRepository;
+	
+	@Autowired
+	private CardService cardService;
 
-    //POST - CREATE
-    @ApiOperation(value = "Create an card")
-    @PostMapping
-    public Card PostCard(@RequestBody Card card) {
-    	return cardRepository.save(card);
-    }
 
     //GET - READ ALL
     @ApiOperation(value = "List All Cards")
@@ -32,32 +32,16 @@ public class CardController {
     //GET - READ BY ID
     @ApiOperation(value = "Read cards by Id")
     @GetMapping("/{id}")
-    public Card GetCard(@PathVariable Integer id) {
-    	return cardRepository.findById(id).orElseThrow(() -> new RuntimeException("Card not found."));
-    }
-
-    //PUT - UPDATE BY ID
-    @ApiOperation(value = "Update Cards by Id")
-    @PutMapping("/{id}")
-    public Card PutCard(@RequestBody Card card) {
-        Card oldCard = cardRepository.findById(card.getId()).orElseThrow(
-        		() -> new RuntimeException("Card not found."));
-        oldCard.setName(card.getName());
-        oldCard.setFlag(card.getFlag());
-        oldCard.setCardType(card.getCardType());
-        oldCard.setNumber(card.getNumber());
-        oldCard.setDigitCode(card.getDigitCode());
-        oldCard.setLimitBalance(card.getLimitBalance());
-        oldCard.setAccount(card.getAccount());
-        return cardRepository.save(oldCard);
+    public ResponseEntity<Card> findById(@PathVariable("id") Integer id) {
+        Card card = cardService.findById(id);
+        return new ResponseEntity<>(card, HttpStatus.OK);
     }
 
     //DELETE - DELETE BY ID
     @ApiOperation(value = "Delete Cards by Id")
     @DeleteMapping("/{id}")
-    public Integer DeleteCard(@PathVariable Integer id) {
-    	cardRepository.deleteById(id);
-    	return id;
+    public ResponseEntity<Void> delete(@PathVariable("id") Integer id) {
+        cardService.delete(id);
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
-
 }

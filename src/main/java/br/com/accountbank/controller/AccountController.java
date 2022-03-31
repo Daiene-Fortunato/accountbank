@@ -1,12 +1,20 @@
 package br.com.accountbank.controller;
 
 import br.com.accountbank.model.Account;
+import br.com.accountbank.model.Card;
 import br.com.accountbank.repository.AccountRepository;
+import br.com.accountbank.service.AccountService;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import java.net.URI;
 import java.util.List;
+
+import javax.validation.Valid;
 
 @RestController
 @RequestMapping("/api/v1/accounts")
@@ -14,13 +22,23 @@ public class AccountController {
     
 	@Autowired
     private AccountRepository accountRepository;
+	
+	@Autowired
+	private AccountService accountService;
 
     //POST - CREATE
     @ApiOperation(value = "Create an Account")
     @PostMapping
-    public Account PostAccount(@RequestBody Account account) {
-    	return accountRepository.save(account);
+    public ResponseEntity<Account> save(@Valid @RequestBody Account account) {
+        Account acc = accountService.save(account);
+        URI location = ServletUriComponentsBuilder
+                .fromCurrentRequest()
+                .path("/{id}")
+                .buildAndExpand(acc.getId())
+                .toUri();
+        return ResponseEntity.created(location).body(acc);
     }
+    
 
     //GET - READ ALL
     @ApiOperation(value = "List All Accounts")
@@ -32,31 +50,27 @@ public class AccountController {
     //GET - READ BY ID
     @ApiOperation(value = "Read Account by Id")
     @GetMapping("/{id}")
-    public Account GetAccount(@PathVariable Integer id) {
-    	return accountRepository.findById(id).orElseThrow(
-    			() -> new RuntimeException("Account not found."));
-    }
+    public ResponseEntity<Account> findById(@PathVariable("id") Integer id) {
 
-    //PUT - UPDATE BY ID
-    @ApiOperation(value = "Update Account by Id")
-    @PutMapping("/{id}")
-    public Account PutAccount(@RequestBody Account account) {
-        Account oldAccount = accountRepository.findById(account.getId()).orElseThrow(
-        		() -> new RuntimeException("Account not found."));
-        oldAccount.setNameOwner(account.getNameOwner());
-        oldAccount.setAgencyCode(account.getAgencyCode());
-        oldAccount.setAccountCode(account.getAccountCode());
-        oldAccount.setVerificationDigit(account.getVerificationDigit());
-        oldAccount.setRegisterId(account.getRegisterId());
-        return accountRepository.save(oldAccount);
+        Account account = accountService.findById(id);
+        return new ResponseEntity<>(account, HttpStatus.OK);
+    }
+    
+    
+    //POST - ADD CARD
+    @ApiOperation(value="Add card to account")
+    @PutMapping("/addcard/{id}")
+    public ResponseEntity<Account> addCard(@PathVariable("id") Integer id, @Valid @RequestBody Card card) {
+        Account acc = accountService.addCard(id, card);
+        return new ResponseEntity<Account>(acc, HttpStatus.OK);
     }
 
     //DELETE - DELETE BY ID
     @ApiOperation(value = "Delete Account by Id")
     @DeleteMapping("/{id}")
-    public Integer DeleteAccount(@PathVariable Integer id) {
-    	accountRepository.deleteById(id);
-    	return id;
+    public ResponseEntity<Void> delete(@PathVariable("id") Integer id) {
+        accountService.delete(id);
+        return new ResponseEntity<Void>(HttpStatus.NO_CONTENT);
     }
 
 }
