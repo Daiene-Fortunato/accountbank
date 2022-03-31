@@ -1,11 +1,13 @@
 package br.com.accountbank.model;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-
 import br.com.accountbank.enums.Flag;
 import org.hibernate.Hibernate;
 
 import javax.persistence.*;
+import javax.validation.constraints.DecimalMin;
+import javax.validation.constraints.Digits;
+import javax.validation.constraints.NotNull;
+
 import java.io.Serializable;
 import java.util.Objects;
 
@@ -21,32 +23,51 @@ public class Card implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Integer id;
-
+    
+    @NotNull(message = "Name is mandatory")
     @Column(name = "name", length = 128)
     private String name;
-
+    
+    @NotNull(message = "Flag is mandatory")
     @Column(name = "flag", length = 45)
     @Enumerated(EnumType.STRING)
     private Flag flag;
 
-    @ManyToOne
-    @JoinColumn(name = "card_type_id", referencedColumnName = "id", foreignKey = @ForeignKey(name = "fk_card_type_card"))
-    private CardType cardType;
-
-    @Column(name = "number", length = 20)
+    @NotNull(message = "Number is mandatory")
+    @Column(name = "number", length = 20, unique = true)
     private String number;
 
+    @NotNull(message = "Digit Code is mandatory")
     @Column(name = "digit_code", length = 5)
     private String digitCode;
 
-    @Column(name = "limit_balance", length = 20)
+    @NotNull(message = "Limit Balance is mandatory")
+    @Column(name = "limit_balance")
+    @DecimalMin(value = "0.0", inclusive = false)
+    @Digits(integer=20, fraction=2)
     private Double limitBalance;
-
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "account_id", referencedColumnName = "id", foreignKey = @ForeignKey(name = "fk_card_account"))
-    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
-    private Account account;
     
+    
+    //Sem o Cascade, pois ele exclui os tipos de cartão quando exclui o cartão de referencia.
+    @ManyToOne
+    @JoinColumn(name = "cardtype_id", referencedColumnName = "id")
+    private CardType cardType;
+
+    
+    //------------- Construtor -------------------
+	public Card(String name, Flag flag, String number, 
+			String digitCode, Double limitBalance, CardType cardType) {
+		this.name = name;
+		this.flag = flag;
+		this.number = number;
+		this.digitCode = digitCode;
+		this.limitBalance = limitBalance;
+		this.cardType = cardType;
+	}
+
+	public Card() {
+	}
+
 
     public Integer getId() {
 		return id;
@@ -103,33 +124,7 @@ public class Card implements Serializable {
 	public void setLimitBalance(Double limitBalance) {
 		this.limitBalance = limitBalance;
 	}
-
-	public Account getAccount() {
-		return account;
-	}
-
-	public void setAccount(Account account) {
-		this.account = account;
-	}
 	
-	
-	public Card(Integer id, String name, Flag flag, CardType cardType,
-			String number, String digitCode, Double limitBalance,
-			Account account) {
-		super();
-		this.id = id;
-		this.name = name;
-		this.flag = flag;
-		this.cardType = cardType;
-		this.number = number;
-		this.digitCode = digitCode;
-		this.limitBalance = limitBalance;
-		this.account = account;
-	}
-
-	public Card() {
-		super();
-	}
 
 	@Override
     public boolean equals(Object o) {

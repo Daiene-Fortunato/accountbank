@@ -6,8 +6,8 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Objects;
 
-@Table(name = "card_type", indexes = {
-        @Index(name = "type_card_name_index", columnList = "name", unique = true)
+@Table(name = "cardtype", indexes = {
+        @Index(name = "cardtype_name_index", columnList = "name", unique = true)
 })
 @Entity
 public class CardType implements Serializable {

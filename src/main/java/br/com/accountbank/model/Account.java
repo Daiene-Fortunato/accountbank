@@ -3,7 +3,11 @@ package br.com.accountbank.model;
 import org.hibernate.Hibernate;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
 
@@ -19,26 +23,48 @@ public class Account implements Serializable {
     @Column(name = "id")
     private Integer id;
 
+    @NotNull(message = "Name Owner is mandatory")
     @Column(name = "name_owner", length = 50)
     private String nameOwner;
 
+    @NotNull(message = "Agency Code is mandatory")
     @Column(name = "agency_code", length = 4)
     private String agencyCode;
 
+    @NotNull(message = "Account Code is mandatory")
     @Column(name = "account_code", length = 8)
     private String accountCode;
 
+    @NotNull(message = "Verification Digit is mandatory")
     @Column(name = "digit_verification", length = 1)
     private String verificationDigit;
 
+    @NotNull(message = "Register Id is mandatory")
     @Column(name = "register_id", length = 20, unique = true)
     private String registerId;
 
-    //Uma conta com vários cartões, sendo a entidade account a mãe das operações
-  	//CascadeType.All: Propaga merge, persist, refresh e remove de account para cards
-    @OneToMany(mappedBy = "account", cascade = CascadeType.ALL)
-    private List<Card> cards;    
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "account_id", referencedColumnName = "id")
+    private List<Card> cards;
 
+
+    public Account() {
+        cards = new ArrayList<>();
+    }
+
+    //------- CONSTRUTOR ------------
+	public Account(String nameOwner, String agencyCode,
+			String accountCode, String verificationDigit, String registerId,
+			List<Card> cards) {
+		this.nameOwner = nameOwner;
+		this.agencyCode = agencyCode;
+		this.accountCode = accountCode;
+		this.verificationDigit = verificationDigit;
+		this.registerId = registerId;
+		this.cards = cards; // == null ? new ArrayList<>() : cards;
+	}
+
+    
     public Integer getId() {
 		return id;
 	}
@@ -87,34 +113,24 @@ public class Account implements Serializable {
 		this.registerId = registerId;
 	}
 
-	public List<Card> getCards() {
-		return cards;
-	}
 
 	public void setCards(List<Card> cards) {
 		this.cards = cards;
 	}
 
-	
-	
-	public Account(Integer id, String nameOwner, String agencyCode,
-			String accountCode, String verificationDigit, String registerId,
-			List<Card> cards) {
-		super();
-		this.id = id;
-		this.nameOwner = nameOwner;
-		this.agencyCode = agencyCode;
-		this.accountCode = accountCode;
-		this.verificationDigit = verificationDigit;
-		this.registerId = registerId;
-		this.cards = cards;
+	public List<Card> getCards() {
+		return Collections.unmodifiableList(cards);
 	}
 
-	public Account() {
-		super();
+	public void addCard(Card card) {
+		cards.add(card);
 	}
 
-	//Subscrição Equals: implementa relação de equivalência e relação a objetos não nulos.
+	public boolean removeCard(Card card) {
+		return cards.remove(card);
+	}
+	
+
 	@Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -123,7 +139,7 @@ public class Account implements Serializable {
         return id != null && Objects.equals(id, account.id);
     }
 
-	//Subscrição hashCode: objetos iguais devem possuir códigos de hash iguais.
+
     @Override
     public int hashCode() {
         return getClass().hashCode();
